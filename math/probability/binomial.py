@@ -38,3 +38,24 @@ class Binomial:
 
             self.n = int(n)
             self.p = float(p)
+
+    def pmf(self, k):
+        """Calculate the PMF for a given number of successes."""
+        k = int(k)
+
+        if k < 0 or k > self.n:
+            return 0
+
+        numerator = 1
+        for i in range(self.n, self.n - k, -1):
+            numerator *= i
+
+        denominator = 1
+        for i in range(1, k + 1):
+            denominator *= i
+
+        combination = numerator / denominator
+
+        return (combination *
+                (self.p ** k) *
+                ((1 - self.p) ** (self.n - k)))
