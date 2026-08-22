@@ -37,5 +37,4 @@ class MultiNormal:
         denominator = np.sqrt(
             (2 * np.pi) ** d * np.linalg.det(self.cov)
         )
-
-        return np.exp(exponent) / denominator
+        return float(np.exp(exponent) / denominator)
